@@ -1,0 +1,22 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+
+/* Additional styles */
+@import "additional-styles/utility-patterns.css";
+@import "additional-styles/theme.css";
+
+@import "tailwindcss/utilities";
+
+/* Additional Tailwind directives: https://tailwindcss.com/docs/functions-and-directives/#responsive */
+@layer utilities {
+  .rtl {
+    direction: rtl;
+  }
+  .link {
+    @apply text-blue-700 font-medium bg-white shadow-md px-3 py-2 rounded-md flex-nowrap;
+  }
+
+  .divLink {
+    @apply flex flex-wrap gap-2;
+  }
+}
