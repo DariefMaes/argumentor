@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Particles from "./particles";
 import Illustration from "@/public/images/glow-bottom.svg";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -58,15 +59,15 @@ export default function Hero() {
               data-aos-delay="400"
             >
               <div>
-                <a
+                <Link
                   className="btn text-slate-900 bg-gradient-to-r from-white/80 via-white to-white/80 hover:bg-white w-full transition duration-150 ease-in-out group"
-                  href="#0"
+                  href="/signup"
                 >
                   Get Started for free{" "}
                   <span className="tracking-normal text-green-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
                     -&gt;
                   </span>
-                </a>
+                </Link>
               </div>
               {/* <div>
                 <a

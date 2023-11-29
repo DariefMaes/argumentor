@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Pricing() {
@@ -117,15 +118,15 @@ export default function Pricing() {
                   </div>
                 </div>
                 <div className="pb-4 border-b border-slate-800">
-                  <a
+                  <Link
                     className="btn-sm text-slate-900 bg-gradient-to-r from-white/80 via-white to-white/80 hover:bg-white w-full transition duration-150 ease-in-out group"
-                    href="#0"
+                    href="/signup"
                   >
                     Get Started{" "}
                     <span className="tracking-normal text-green group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
                       -&gt;
                     </span>
-                  </a>
+                  </Link>
                 </div>
               </div>
               {/* Team price */}
@@ -150,15 +151,15 @@ export default function Pricing() {
                   </div>
                 </div>
                 <div className="pb-4 border-b border-slate-800">
-                  <a
+                  <Link
                     className="btn-sm text-white bg-green hover:bg-green-600 w-full transition duration-150 ease-in-out group"
-                    href="#0"
+                    href="/signup"
                   >
                     Get Started{" "}
                     <span className="tracking-normal text-green-300 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
                       -&gt;
                     </span>
-                  </a>
+                  </Link>
                 </div>
               </div>
               {/* Enterprise price */}
@@ -183,15 +184,15 @@ export default function Pricing() {
                   </div>
                 </div>
                 <div className="pb-4 border-b border-slate-800">
-                  <a
+                  <Link
                     className="btn-sm text-slate-900 bg-gradient-to-r from-white/80 via-white to-white/80 hover:bg-white w-full transition duration-150 ease-in-out group"
-                    href="#0"
+                    href="/signup"
                   >
                     Get Started{" "}
                     <span className="tracking-normal text-green group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
                       -&gt;
                     </span>
-                  </a>
+                  </Link>
                 </div>
               </div>
               {/* # Usage */}
