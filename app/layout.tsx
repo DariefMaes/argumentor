@@ -11,8 +11,12 @@ const inter = Lato({
 
 export const metadata = {
   title: "ArguMentor",
+  metadataBase: new URL("https://argumentor.co"),
   description:
     "Research easier using the power of AI. Have easier access to resources and write that A+ paper.",
+  openGraph: {
+    images: "/opengraph-image.png",
+  },
 };
 
 export default function RootLayout({
@@ -22,10 +26,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <meta property="og:image" content="<generated>" />
+      {/* <meta property="og:image" content="<generated>" />
       <meta property="og:image:type" content="<generated>" />
       <meta property="og:image:width" content="<generated>" />
-      <meta property="og:image:height" content="<generated>" />
+      <meta property="og:image:height" content="<generated>" /> */}
 
       <body
         className={`${inter.variable} font-inter antialiased bg-slate-900 text-slate-100 tracking-tight`}
