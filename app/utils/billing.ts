@@ -1,7 +1,6 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import Stripe from "stripe";
-import url from "./url";
 
 export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2023-10-16",
@@ -18,7 +17,7 @@ export async function hasSubscription() {
     .select("stripe_customer_id")
     .single();
 
-  if (session) {
+  if (session && user?.stripe_customer_id) {
     const subscriptions = await stripe.subscriptions.list({
       customer: user?.stripe_customer_id,
     });
@@ -42,8 +41,8 @@ export async function createCheckoutLink({
   };
 
   const checkout = await stripe.checkout.sessions.create({
-    success_url: `${url}/dashboard/success`,
-    cancel_url: `${url}/dashboard/cancels`,
+    success_url: `${process.env.NEXT_PUBLIC_URL}/dashboard/upgrade/success/{CHECKOUT_SESSION_ID}`,
+    cancel_url: `${process.env.NEXT_PUBLIC_URL}/dashboard/upgrade/cancel/{CHECKOUT_SESSION_ID}`,
     customer: customer,
     payment_method_types: ["card"],
     line_items: [
@@ -59,10 +58,11 @@ export async function createCheckoutLink({
 }
 
 export async function generateCustomerPortalLink(customerId: string) {
+  console.log(customerId);
   try {
     const portalSession = await stripe.billingPortal.sessions.create({
       customer: customerId,
-      return_url: `${url}/dashboard`,
+      return_url: `${process.env.NEXT_PUBLIC_URL}/dashboard`,
     });
     console.log(portalSession);
     return portalSession.url;
@@ -78,16 +78,17 @@ export async function createCustomerIfNull() {
   const {
     data: { session },
   } = await supabase.auth.getSession();
-  const { data: user } = await supabase
+  const { data: user, error } = await supabase
     .from("users")
     .select("stripe_customer_id")
     .single();
 
-  if (!user) {
+  if (error) {
     await supabase.from("users").insert({
       role: "USER",
       subscription_type: "FREE",
       id: session?.user.id,
+      last_reset_day: new Date(),
     });
   }
 
@@ -102,6 +103,8 @@ export async function createCustomerIfNull() {
         .from("users")
         .update({ stripe_customer_id: customer.id })
         .eq("id", session.user.id);
+
+      return null;
     }
   }
   const { data: customer } = await supabase

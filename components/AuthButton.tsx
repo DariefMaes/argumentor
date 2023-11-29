@@ -21,7 +21,7 @@ export function LoginDiscordButton() {
     await supabase.auth.signInWithOAuth({
       provider: "discord",
       options: {
-        redirectTo: `${url}/auth/callback`,
+        redirectTo: `${process.env.NEXT_PUBLIC_URL}/auth/callback`,
       },
     });
     router.refresh();
@@ -37,10 +37,13 @@ export function LoginDiscordButton() {
   // }, []);
   return (
     <button
-      className="flex items-center gap-3 p-3 shadow-md rounded-md bg-[#0C2650] text-white"
       onClick={handleLogin}
+      className="btn text-slate-300 hover:text-white transition duration-150 ease-in-out w-full group [background:linear-gradient(theme(colors.slate.900),_theme(colors.slate.900))_padding-box,_conic-gradient(theme(colors.slate.400),_theme(colors.slate.700)_25%,_theme(colors.slate.700)_75%,_theme(colors.slate.400)_100%)_border-box] relative before:absolute before:inset-0 before:bg-slate-800/30 before:rounded-full before:pointer-events-none h-9"
     >
-      <BsDiscord /> Login with Facebook
+      <span className="relative">
+        <span className="sr-only">Continue with Twitter</span>
+        <BsDiscord />
+      </span>
     </button>
   );
 }
@@ -60,7 +63,7 @@ export function LoginButton() {
     await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: `${url}/auth/callback`,
+        redirectTo: `${process.env.NEXT_PUBLIC_URL}/auth/callback`,
       },
     });
     router.refresh();
@@ -76,10 +79,13 @@ export function LoginButton() {
   // }, []);
   return (
     <button
-      className="flex items-center gap-3 p-3 shadow-md rounded-md bg-[#0C2650] text-white"
       onClick={handleLogin}
+      className="btn text-slate-300 hover:text-white transition duration-150 ease-in-out w-full group [background:linear-gradient(theme(colors.slate.900),_theme(colors.slate.900))_padding-box,_conic-gradient(theme(colors.slate.400),_theme(colors.slate.700)_25%,_theme(colors.slate.700)_75%,_theme(colors.slate.400)_100%)_border-box] relative before:absolute before:inset-0 before:bg-slate-800/30 before:rounded-full before:pointer-events-none h-9"
     >
-      <BsGoogle /> Login using UCSD Email
+      <span className="relative">
+        <span className="sr-only">Continue with Twitter</span>
+        <BsGoogle />
+      </span>
     </button>
   );
 }

@@ -15,5 +15,5 @@ export async function GET(request: NextRequest) {
   console.log("hit");
 
   // URL to redirect to after sign in process completes
-  return NextResponse.redirect(`http://localhost:3001/dashboard`);
+  return NextResponse.redirect(`${process.env.NEXT_PUBLIC_URL}/onboarding`);
 }

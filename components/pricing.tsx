@@ -267,21 +267,30 @@ export default function Pricing() {
               {/* Custom Domains */}
               <div className="px-6 flex flex-col justify-end">
                 <div className="py-2 text-slate-400 border-b border-slate-800">
-                  Custom Domains
+                  Chat with sources
                 </div>
               </div>
               <div className="px-6 flex flex-col justify-end">
                 <div className="flex items-center h-full border-b border-slate-800 py-2 text-slate-400">
                   <svg
-                    className="shrink-0 fill-green mr-3"
+                    id="fi_2976286"
+                    className="shrink-0 fill-red-500 mr-3 w-3 h-3"
+                    enableBackground="new 0 0 320.591 320.591"
+                    height="512"
+                    viewBox="0 0 320.591 320.591"
+                    width="512"
                     xmlns="http://www.w3.org/2000/svg"
-                    width="12"
-                    height="9"
                   >
-                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
+                    <g>
+                      <g id="close_1_">
+                        <path d="m30.391 318.583c-7.86.457-15.59-2.156-21.56-7.288-11.774-11.844-11.774-30.973 0-42.817l257.812-257.813c12.246-11.459 31.462-10.822 42.921 1.424 10.362 11.074 10.966 28.095 1.414 39.875l-259.331 259.331c-5.893 5.058-13.499 7.666-21.256 7.288z"></path>
+                        <path d="m287.9 318.583c-7.966-.034-15.601-3.196-21.257-8.806l-257.813-257.814c-10.908-12.738-9.425-31.908 3.313-42.817 11.369-9.736 28.136-9.736 39.504 0l259.331 257.813c12.243 11.462 12.876 30.679 1.414 42.922-.456.487-.927.958-1.414 1.414-6.35 5.522-14.707 8.161-23.078 7.288z"></path>
+                      </g>
+                    </g>
                   </svg>
+
                   <span>
-                    4 <span className="md:hidden">Custom Domains</span>
+                    0 <span className="md:hidden">Chat with sources</span>
                   </span>
                 </div>
               </div>
@@ -296,7 +305,8 @@ export default function Pricing() {
                     <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
                   </svg>
                   <span>
-                    Unlimited <span className="md:hidden">Custom Domains</span>
+                    Unlimited{" "}
+                    <span className="md:hidden">Chat with sources</span>
                   </span>
                 </div>
               </div>
@@ -311,7 +321,8 @@ export default function Pricing() {
                     <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
                   </svg>
                   <span>
-                    Unlimited <span className="md:hidden">Custom Domains</span>
+                    Unlimited{" "}
+                    <span className="md:hidden">Chat with sources</span>
                   </span>
                 </div>
               </div>
@@ -422,7 +433,7 @@ export default function Pricing() {
                 </div>
               </div> */}
               {/* # Features */}
-              {/* <div className="px-6 flex flex-col justify-end">
+              <div className="px-6 flex flex-col justify-end">
                 <div className="py-2 text-slate-50 font-medium mt-4">
                   Features
                 </div>
@@ -441,11 +452,11 @@ export default function Pricing() {
                 <div className="py-2 text-slate-50 font-medium mt-4 md:hidden">
                   Features
                 </div>
-              </div> */}
+              </div>
               {/* Custom Connection */}
-              {/* <div className="px-6 flex flex-col justify-end">
+              <div className="px-6 flex flex-col justify-end">
                 <div className="py-2 text-slate-400 border-b border-slate-800">
-                  Custom Connection
+                  Topic Research
                 </div>
               </div>
               <div className="px-6 flex flex-col justify-end">
@@ -459,7 +470,7 @@ export default function Pricing() {
                     <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
                   </svg>
                   <span>
-                    <span className="md:hidden">Custom Connection</span>
+                    <span className="md:hidden">Topic Research</span>
                   </span>
                 </div>
               </div>
@@ -474,7 +485,7 @@ export default function Pricing() {
                     <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
                   </svg>
                   <span>
-                    <span className="md:hidden">Custom Connection</span>
+                    <span className="md:hidden">Topic Research</span>
                   </span>
                 </div>
               </div>
@@ -489,30 +500,20 @@ export default function Pricing() {
                     <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
                   </svg>
                   <span>
-                    <span className="md:hidden">Custom Connection</span>
+                    <span className="md:hidden">Topic Research</span>
                   </span>
                 </div>
-              </div> */}
+              </div>
               {/* Advanced Deployment Options */}
-              {/* <div className="px-6 flex flex-col justify-end">
+              <div className="px-6 flex flex-col justify-end">
                 <div className="py-2 text-slate-400 border-b border-slate-800">
-                  Advanced Deployment Options
+                  Chat with sources
                 </div>
               </div>
               <div className="px-6 flex flex-col justify-end">
-                <div className="flex items-center h-full border-b border-slate-800 py-2 text-slate-400">
-                  <svg
-                    className="shrink-0 fill-green mr-3"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="12"
-                    height="9"
-                  >
-                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
-                  </svg>
+                <div className="flex items-center border-b border-slate-800 py-2 text-slate-400 max-md:hidden">
                   <span>
-                    <span className="md:hidden">
-                      Advanced Deployment Options
-                    </span>
+                    <span className="md:hidden">Chat with sources</span>
                   </span>
                 </div>
               </div>
@@ -527,9 +528,7 @@ export default function Pricing() {
                     <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
                   </svg>
                   <span>
-                    <span className="md:hidden">
-                      Advanced Deployment Options
-                    </span>
+                    <span className="md:hidden">Chat with sources</span>
                   </span>
                 </div>
               </div>
@@ -544,18 +543,31 @@ export default function Pricing() {
                     <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
                   </svg>
                   <span>
-                    <span className="md:hidden">
-                      Advanced Deployment Options
-                    </span>
+                    <span className="md:hidden">Chat with sources</span>
                   </span>
                 </div>
-              </div> */}
+              </div>
               {/* Extra Add-ons */}
-              {/* <div className="px-6 flex flex-col justify-end">
+              <div className="px-6 flex flex-col justify-end">
                 <div className="py-2 text-slate-400 border-b border-slate-800">
-                  Extra Add-ons
+                  Generate Essays
                 </div>
               </div>
+              <div className="px-6 flex flex-col justify-end">
+                <div className="flex items-center border-b border-slate-800 py-2 text-slate-400 max-md:hidden">
+                  <span>
+                    <span className="md:hidden"> Generate Thesis</span>
+                  </span>
+                </div>
+              </div>
+              <div className="px-6 flex flex-col justify-end">
+                <div className="flex items-center border-b border-slate-800 py-2 text-slate-400 max-md:hidden">
+                  <span>
+                    <span className="md:hidden"> Generate Essays</span>
+                  </span>
+                </div>
+              </div>
+
               <div className="px-6 flex flex-col justify-end">
                 <div className="flex items-center h-full border-b border-slate-800 py-2 text-slate-400">
                   <svg
@@ -567,57 +579,27 @@ export default function Pricing() {
                     <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
                   </svg>
                   <span>
-                    <span className="md:hidden">Extra Add-ons</span>
+                    <span className="md:hidden"> Generate Essays</span>
                   </span>
                 </div>
               </div>
+              {/*   Generate Thesis */}
               <div className="px-6 flex flex-col justify-end">
-                <div className="flex items-center h-full border-b border-slate-800 py-2 text-slate-400">
-                  <svg
-                    className="shrink-0 fill-green mr-3"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="12"
-                    height="9"
-                  >
-                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
-                  </svg>
-                  <span>
-                    <span className="md:hidden">Extra Add-ons</span>
-                  </span>
-                </div>
-              </div>
-              <div className="px-6 flex flex-col justify-end">
-                <div className="flex items-center h-full border-b border-slate-800 py-2 text-slate-400">
-                  <svg
-                    className="shrink-0 fill-green mr-3"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="12"
-                    height="9"
-                  >
-                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
-                  </svg>
-                  <span>
-                    <span className="md:hidden">Extra Add-ons</span>
-                  </span>
-                </div>
-              </div> */}
-              {/* Admin Roles */}
-              {/* <div className="px-6 flex flex-col justify-end">
                 <div className="py-2 text-slate-400 border-b border-slate-800">
-                  Admin Roles
+                  Generate Thesis
                 </div>
               </div>
               <div className="px-6 flex flex-col justify-end">
                 <div className="flex items-center border-b border-slate-800 py-2 text-slate-400 max-md:hidden">
                   <span>
-                    <span className="md:hidden">Admin Roles</span>
+                    <span className="md:hidden"> Generate Thesis</span>
                   </span>
                 </div>
               </div>
               <div className="px-6 flex flex-col justify-end">
                 <div className="flex items-center border-b border-slate-800 py-2 text-slate-400 max-md:hidden">
                   <span>
-                    <span className="md:hidden">Admin Roles</span>
+                    <span className="md:hidden"> Generate Thesis</span>
                   </span>
                 </div>
               </div>
@@ -632,27 +614,27 @@ export default function Pricing() {
                     <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
                   </svg>
                   <span>
-                    <span className="md:hidden">Admin Roles</span>
+                    <span className="md:hidden"> Generate Thesis</span>
                   </span>
                 </div>
-              </div> */}
-              {/* Deploy and Monitor */}
-              {/* <div className="px-6 flex flex-col justify-end">
+              </div>
+              {/* MLA + APA Citations */}
+              <div className="px-6 flex flex-col justify-end">
                 <div className="py-2 text-slate-400 border-b border-slate-800">
-                  Deploy and Monitor
+                  MLA + APA Citations
                 </div>
               </div>
               <div className="px-6 flex flex-col justify-end">
                 <div className="flex items-center border-b border-slate-800 py-2 text-slate-400 max-md:hidden">
                   <span>
-                    <span className="md:hidden">Deploy and Monitor</span>
+                    <span className="md:hidden">MLA + APA Citations</span>
                   </span>
                 </div>
               </div>
               <div className="px-6 flex flex-col justify-end">
                 <div className="flex items-center border-b border-slate-800 py-2 text-slate-400 max-md:hidden">
                   <span>
-                    <span className="md:hidden">Deploy and Monitor</span>
+                    <span className="md:hidden">MLA + APA Citations</span>
                   </span>
                 </div>
               </div>
@@ -667,10 +649,10 @@ export default function Pricing() {
                     <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
                   </svg>
                   <span>
-                    <span className="md:hidden">Deploy and Monitor</span>
+                    <span className="md:hidden">MLA + APA Citations</span>
                   </span>
                 </div>
-              </div> */}
+              </div>
               {/* Enterprise Add-ons */}
               {/* <div className="px-6 flex flex-col justify-end">
                 <div className="py-2 text-slate-400 border-b border-slate-800">

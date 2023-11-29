@@ -2,6 +2,7 @@ import { createCheckoutLink, hasSubscription } from "@/app/utils/billing";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const Feature = ({ text }: { text: string }) => {
   return (

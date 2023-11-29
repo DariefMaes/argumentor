@@ -20,10 +20,10 @@ function Navbar({ children }: { children: React.ReactNode }) {
       <MotionDiv
         layout
         className={` ${
-          open ? "max-w-xs" : "max-w-[64px]"
-        } hidden flex-shrink-0 md:flex flex-col h-full w-full items-center border-r-[1px] bg-slate-900 z-50 border-white/10 justify-between`}
+          open ? "md:max-w-xs max-w-full" : "md:max-w-[64px] max-w-[1px]"
+        }  flex-shrink-0 md:flex flex-col h-full w-full items-center md:border-r-[1px] bg-slate-900 z-50 md:border-white/10 justify-between`}
       >
-        <div className="flex sticky w-full px-5 top-0 bg-slate-900 py-5 gap-5 justify-start md:justify-between items-center">
+        <div className="flex sticky w-full px-5 top-0 bg-slate-900 py-5 gap-5 justify-between items-center">
           <h2
             className={`font-semibold ${
               open ? "block" : "hidden"
@@ -74,7 +74,7 @@ function Navbar({ children }: { children: React.ReactNode }) {
               x: 0,
             }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            className={`  flex-col px-3 flex items-center py-5 gap-2`}
+            className={` hidden flex-col px-3 md:flex items-center py-5 gap-2`}
           >
             <button className="bg-slate-950/50 hover:bg-slate-900 transition-all duration-200 rounded-md p-3">
               <FaRegArrowAltCircleUp className="w-5 h-5 text-white" />

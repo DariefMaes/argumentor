@@ -20,8 +20,6 @@ export default async function Dashboard() {
   const cookieStore = cookies();
   const supabase = createServerComponentClient({ cookies: () => cookieStore });
 
-  await createCustomerIfNull();
-
   const { data, error } = await supabase.auth.getSession();
   if (!data.session) {
     return redirect("/");

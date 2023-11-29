@@ -1,11 +1,18 @@
 import Image from "next/image";
 import Illustration from "@/public/images/auth-illustration.svg";
+import { createCustomerIfNull } from "../utils/billing";
+import { redirect } from "next/navigation";
 
-export default function AuthLayout({
+export default async function AuthLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const id = await createCustomerIfNull();
+
+  if (id) {
+    return redirect("/dashboard");
+  }
   return (
     <main className="grow">
       <section className="relative">

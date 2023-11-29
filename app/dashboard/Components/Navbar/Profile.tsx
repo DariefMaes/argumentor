@@ -11,9 +11,11 @@ import { IoSettingsOutline } from "react-icons/io5";
 async function Profile() {
   const cookieStore = cookies();
   const supabase = createServerComponentClient({ cookies: () => cookieStore });
-  const setModal = useUIStore.getState().setUserModal;
+
   const { data, error } = await supabase.auth.getSession();
   const hasSub = await hasSubscription();
+
+  const userInfo = data?.session?.user.user_metadata;
 
   return (
     <MotionDiv
@@ -36,16 +38,20 @@ async function Profile() {
         className="flex items-center text-white w-full justify-between "
       >
         <div className="flex  gap-3 items-center">
-          <Image
-            className="w-10 rounded-full"
-            src={data.session?.user.user_metadata.avatar_url}
-            alt="user avatar"
-            width={600}
-            height={600}
-          />
-          <p className="text-sm font-bold capitalize">
-            {data.session?.user.user_metadata.name}
-          </p>
+          {userInfo?.avatar_url ? (
+            <Image
+              className="w-10 rounded-full"
+              src={userInfo?.avatar_url}
+              alt="user avatar"
+              width={600}
+              height={600}
+            />
+          ) : (
+            <div className=" bg-green aspect-square w-10 h-10 rounded-full flex items-center justify-center font-bold">
+              {userInfo?.full_name.charAt(0)}
+            </div>
+          )}
+          <p className="text-sm font-bold capitalize">{userInfo?.full_name}</p>
         </div>
         <IoSettingsOutline className="w-5 h-5" />
         {/* <LogoutButton /> */}

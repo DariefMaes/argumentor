@@ -13,12 +13,22 @@ export default async function RootLayout({
   const supabase = createServerComponentClient({ cookies: () => cookieStore });
 
   const { data, error } = await supabase.auth.getSession();
+  const { data: user } = await supabase
+    .from("users")
+    .select("stripe_customer_id")
+    .eq("id", data?.session?.user.id)
+    .single();
 
   if (!data.session) {
     return redirect("/");
   }
+  console.log(user?.stripe_customer_id);
+
+  if (!user || !user?.stripe_customer_id) {
+    return redirect("/onboarding");
+  }
   return (
-    <div className="flex h-screen items-center">
+    <div className="flex flex-row w-full md:flex-row h-screen items-center">
       <Navbar>
         <Profile />
       </Navbar>
