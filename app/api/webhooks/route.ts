@@ -20,7 +20,6 @@ export async function POST(request: Request) {
     const sig = headers().get("stripe-signature");
     const body = await request.text();
     const event = stripe.webhooks.constructEvent(body, sig!, endpointSecret);
-    console.log("hit");
 
     // Initial payment first time
     if (event.type === "checkout.session.completed") {
