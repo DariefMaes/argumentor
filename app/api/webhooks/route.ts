@@ -13,8 +13,7 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE!
 );
 
-const endpointSecret =
-  "whsec_d1562b3bf2eb073effede2669d416e7626185e64fa14ea6c30a6ccab526a680f";
+const endpointSecret = "whsec_q2twh8lNVGmHzrowjqcz92QYBxv2Lduv";
 
 export async function POST(request: Request) {
   try {
