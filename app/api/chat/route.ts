@@ -3,15 +3,14 @@ import {
   createRouteHandlerClient,
 } from "@supabase/auth-helpers-nextjs";
 import { LangChainStream, StreamingTextResponse } from "ai";
-import { LLMChain, RetrievalQAChain } from "langchain/chains";
-import { SerpAPILoader } from "langchain/document_loaders/web/serpapi";
-import { SerpAPI } from "langchain/tools";
+import { RetrievalQAChain } from "langchain/chains";
+
 import { OpenAIEmbeddings } from "langchain/embeddings/openai";
 import { OpenAI } from "langchain/llms/openai";
-import { ChatPromptTemplate, PromptTemplate } from "langchain/prompts";
+import { PromptTemplate } from "langchain/prompts";
 import { MemoryVectorStore } from "langchain/vectorstores/memory";
 import { cookies } from "next/headers";
-import { NextResponse } from "next/server";
+
 import { encodingForModel } from "js-tiktoken";
 
 export const runtime = "edge";
@@ -52,11 +51,6 @@ Do not add sources to the response.`,
 });
 
 export async function POST(req: Request) {
-  // const search = new OpenAI({
-  //   modelName: "gpt-3.5-turbo",
-  //   temperature: 0.5,
-  // });
-
   let totalExecutionTokens = 0;
   let totalPromptTokens = 0;
   const enc = encodingForModel("gpt-3.5-turbo");
@@ -79,13 +73,8 @@ export async function POST(req: Request) {
   } = (await req.json()) as RequestData;
 
   await insertChatSession(supabase, id, question, true, user_id);
-  // else if (type === "apa") {
-  //   prompt = apaPrompt;
-  // } else if (type === "mla") {
-  //   prompt = mlaPrompt;
 
-  console.log(question, id);
-  const { stream, handlers, writer } = LangChainStream();
+  const { stream, handlers } = LangChainStream();
 
   const { data } = await supabase
     .from("cases")
@@ -100,19 +89,11 @@ export async function POST(req: Request) {
     embeddings
   );
 
-  const topic = data?.topic;
-
   const chain = RetrievalQAChain.fromLLM(llm, vectorStore.asRetriever(), {
     prompt,
   });
 
   totalPromptTokens += enc.encode(prompt.template).length;
-
-  console.log(question, type);
-  console.log(vectorStore);
-
-  // console.log(vectorStore.embeddings);
-  // if (!command) {
 
   chain
     .call(
