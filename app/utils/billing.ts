@@ -36,8 +36,8 @@ export async function createCheckoutLink({
   product: "pro" | "acc";
 }) {
   const prod = {
-    pro: "price_1OF8ofAR2IMz6yHQRWhzQYz9",
-    acc: "price_1OF8oqAR2IMz6yHQKQDMVnaa",
+    pro: "price_1OHfDmGmeAlPaDEXPXfI6ZDi",
+    acc: "price_1OHfE3GmeAlPaDEXFLYi2EA1",
   };
 
   const checkout = await stripe.checkout.sessions.create({
