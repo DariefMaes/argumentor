@@ -5,19 +5,10 @@ import { LoginButton, LoginDiscordButton } from "@/components/AuthButton";
 import { useState } from "react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
-import toast, { Toaster } from "react-hot-toast";
+import { ToastContainer, toast } from "react-toastify";
 
-const notifyError = () =>
-  toast("Wrong credentials!", {
-    className: "bg-red-500 text-white",
-    icon: "❌",
-  });
-const notifySuccess = () =>
-  toast("Successfully logged in!", {
-    position: "top-center",
-    className: "bg-green-500 text-white",
-    icon: "👏",
-  });
+const notifyError = () => toast.error("Wrong credentials!");
+const notifySuccess = () => toast.success("Successfully logged in!");
 
 export default function SignIn() {
   const router = useRouter();
@@ -43,7 +34,7 @@ export default function SignIn() {
   };
   return (
     <>
-      <Toaster />
+      <ToastContainer />
       {/* Page header */}
       <div className="max-w-3xl mx-auto text-center pb-12">
         {/* Logo */}

@@ -6,9 +6,8 @@ import { LoginButton, LoginDiscordButton } from "@/components/AuthButton";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import toast, { Toaster } from "react-hot-toast";
 
-const notifyError = () => toast.success("Email has been sent!", {});
+import { ToastContainer, toast } from "react-toastify";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
@@ -18,8 +17,9 @@ export default function SignUp() {
   const router = useRouter();
   const supabase = createClientComponentClient();
 
-  const handleSignUp = async () => {
-    await supabase.auth.signUp({
+  const handleSignUp = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const { data, error } = await supabase.auth.signUp({
       email,
       password,
 
@@ -31,12 +31,16 @@ export default function SignUp() {
       },
     });
     console.log("sign up");
-    notifyError();
-    router.refresh();
+
+    const notify = () => toast("Check your email to verify your account!");
+    notify();
+    setEmail("");
+    setPassword("");
+    setName("");
   };
   return (
     <>
-      <Toaster />
+      <ToastContainer />
       {/* Page header */}
       <div className="max-w-3xl mx-auto text-center pb-12">
         {/* Logo */}
