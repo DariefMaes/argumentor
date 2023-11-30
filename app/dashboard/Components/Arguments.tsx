@@ -52,7 +52,7 @@ function Arguments() {
       );
     } else if (
       data &&
-      data.length >= 2 &&
+      data.length >= 500 &&
       lastReset.getDate() !== today.getDate() &&
       user?.subscription_type === "ACC"
     ) {
