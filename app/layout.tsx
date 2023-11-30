@@ -9,6 +9,8 @@ const inter = Lato({
   display: "swap",
 });
 
+import { Analytics } from "@vercel/analytics/react";
+
 export const metadata = {
   title: "ArguMentor",
   metadataBase: new URL("https://argumentor.co"),
@@ -38,6 +40,7 @@ export default function RootLayout({
       >
         <div className="flex flex-col min-h-screen overflow-hidden">
           {children}
+          <Analytics />
         </div>
       </body>
     </html>

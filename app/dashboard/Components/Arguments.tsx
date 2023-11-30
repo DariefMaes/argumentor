@@ -1,16 +1,67 @@
 "use client";
 import { useUIStore } from "@/app/stores/uiStore";
 import { MotionDiv } from "@/app/utils/framer";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useCompletion } from "ai/react";
 import React, { useEffect } from "react";
 import { BiSolidSend } from "react-icons/bi";
 import { CgSpinnerAlt } from "react-icons/cg";
+import { ToastContainer, toast } from "react-toastify";
 
 function Arguments() {
   const { completion, input, handleInputChange, handleSubmit, isLoading } =
     useCompletion({
       api: "/api/completion",
     });
+
+  const handleLimitSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const supabase = createClientComponentClient();
+    const {
+      data: { session },
+    } = await supabase.auth.getSession();
+    const { data: user } = await supabase
+      .from("users")
+      .select("last_reset_day, subscription_type")
+      .eq("id", session?.user.id)
+      .single();
+    const today = new Date();
+    const lastReset = new Date(user?.last_reset_day);
+
+    const { data, error } = await supabase
+      .from("cases")
+      .select("*")
+      .gt("created_at", lastReset.toISOString());
+    if (
+      data &&
+      data.length >= 10 &&
+      lastReset.getDate() !== today.getDate() &&
+      user?.subscription_type === "FREE"
+    ) {
+      return toast.error(
+        "You have reached your monthly limit. Please upgrade to premium to continue using Argumentor."
+      );
+    } else if (
+      data &&
+      data.length >= 200 &&
+      lastReset.getDate() !== today.getDate() &&
+      user?.subscription_type === "PRO"
+    ) {
+      return toast.error(
+        "You have reached your monthly limit. Please upgrade to premium to continue using Argumentor."
+      );
+    } else if (
+      data &&
+      data.length >= 2 &&
+      lastReset.getDate() !== today.getDate() &&
+      user?.subscription_type === "ACC"
+    ) {
+      return toast.error(
+        "You have reached your monthly limit. Please upgrade to premium to continue using Argumentor."
+      );
+    }
+    handleSubmit(e);
+  };
 
   // if (!isLoading && completion) {
   //   if (input) {
@@ -29,7 +80,7 @@ function Arguments() {
       >
         <form
           className="w-full h-fit p-5 flex focus:border-none focus:outline-none border-b-[1px]  border-white/10"
-          onSubmit={handleSubmit}
+          onSubmit={handleLimitSubmit}
         >
           <input
             type="text"
@@ -91,6 +142,7 @@ function Arguments() {
               <p className="text-base font-light">{argument.description}</p>
             </div>
           ))} */}
+      <ToastContainer />
     </div>
   );
 }

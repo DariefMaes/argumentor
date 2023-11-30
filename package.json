@@ -17,6 +17,7 @@
     "@types/node": "^20.8.2",
     "@types/react": "^18.2.24",
     "@types/react-dom": "^18.2.9",
+    "@vercel/analytics": "^1.1.1",
     "ai": "^2.2.22",
     "aos": "^3.0.0-beta.6",
     "framer-motion": "^10.16.5",
