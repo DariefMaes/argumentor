@@ -13,8 +13,6 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE!
 );
 
-const endpointSecret = "whsec_q2twh8lNVGmHzrowjqcz92QYBxv2Lduv";
-
 export async function POST(request: Request) {
   try {
     const sig = headers().get("stripe-signature");
